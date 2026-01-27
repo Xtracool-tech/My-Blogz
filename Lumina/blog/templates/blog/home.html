@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <section class="featured_post fade-in">
+        <img src= "{{ featured_post.image.url }}" alt="{{ featured_post.title }}" class="featured-image" loading="lazy">
+            <div class="featured-content">
+                <div class="post-meta">
+                    <span class="tag">Featured</span>
+                    <span class="tag">{{ featured_post.tag }}</span>
+                </div>
+                <a href="#post/{{ featured_post.id }}">
+                    <h2 class="post-title" style="font-size: 2rem;">{{ featured_post.title }}</h2>
+                </a>
+                <div class="post-meta" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                    <span>{{ featured_post.author.first_name }} {{ featured_post.author.last_name }}</span>
+                    <span>&bull;</span>
+                    <span>{{ featured_post.date_posted }}</span>
+                </div>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">{{ featured_post.excerpt }}</p>
+                <a href="#post/{{ featured_post.id }}" class="btn btn-primary">Read Article</a>
+            </div>
+            {% for random_post in random_posts %}
+            <div class="post-card fade-in">
+                <a href="#" class="post-image-wrapper" tabindex="-1">
+                    <img src="{{ random_post.image.url }}" alt="{{ random_post.title }}" class="post-image" loading="lazy">
+                </a>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span>{{ random_post.author.first_name }} {{ random_post.author.last_name }}</span>
+                        <span>&bull;</span>
+                        <span>{{ random_post.date_posted }}</span>
+                    </div>
+                    <a href="#post/{{ random_post.id }}">
+                        <h3 class="post-title">{{ random_post.title }}</h3>
+                    </a>
+                    <p class="post-excerpt">{{ random_post.excerpt }}</p>
+                    <div style="margin-top: auto; padding-top: 1rem;">
+                        <span class="tag">{{ random_post.tag }}</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}

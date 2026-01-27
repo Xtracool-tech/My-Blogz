@@ -198,6 +198,7 @@ transition: var(--transition);
 border: 1px solid transparent;
 height: 100%;
 }
+
 .post-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--border); }
 .post-image-wrapper { position: relative; padding-top: 60%; overflow: hidden; }
 .post-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
