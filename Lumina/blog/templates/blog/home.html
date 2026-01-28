@@ -1,13 +1,13 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <section class="featured_post fade-in">
-        <img src= "{{ featured_post.image.url }}" alt="{{ featured_post.title }}" class="featured-image" loading="lazy">
+        <img src= "{{ featured_post.image.url }}" alt="{{ featured_post.title }}"  loading="lazy"  class="featured-image" height="35px">
             <div class="featured-content">
                 <div class="post-meta">
                     <span class="tag">Featured</span>
                     <span class="tag">{{ featured_post.tag }}</span>
                 </div>
-                <a href="#post/{{ featured_post.id }}">
+                <a href="{% url 'post_detail' featured_post.pk  %}">
                     <h2 class="post-title" style="font-size: 2rem;">{{ featured_post.title }}</h2>
                 </a>
                 <div class="post-meta" style="margin-top: 1rem; margin-bottom: 1.5rem;">
@@ -18,6 +18,8 @@
                 <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">{{ featured_post.excerpt }}</p>
                 <a href="#post/{{ featured_post.id }}" class="btn btn-primary">Read Article</a>
             </div>
+    </section>
+    <section class="grid-layout">
             {% for random_post in random_posts %}
             <div class="post-card fade-in">
                 <a href="#" class="post-image-wrapper" tabindex="-1">
@@ -40,5 +42,4 @@
             </div>
         {% endfor %}
     </section>
-
 {% endblock %}

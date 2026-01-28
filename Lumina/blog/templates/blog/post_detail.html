@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <section class="article-view">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <h1 class="article-header">{{ post.title }}</h1>
+        <div class="article-body">
+            {{ post.content|safe }}
+        </div>
+    </section>
+{% endblock %}
