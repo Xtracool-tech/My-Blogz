@@ -15,7 +15,11 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href={% static 'blog/css/styles.css' %}>
-    <title>Lumina | Modern Blog</title>
+    {% if title %}
+        <title> Lumina | {{ title }}</title>
+    {% else %}
+        <title>Lumina | Modern Blog</title>
+    {% endif %}  
 </head>
 <body>
 
@@ -26,10 +30,10 @@
             
             <nav>
                 <ul class="nav-links">
-                    <li><a href="{% url "blog-home" %}" class="nav-link active" data-link>Home</a></li>
-                    <li><a href="#category/Technology" class="nav-link" data-link>Technology</a></li>
-                    <li><a href="#category/Design" class="nav-link" data-link>Design</a></li>
-                    <li><a href="#about" class="nav-link" data-link>About</a></li>
+                    <li><a href="{% url 'blog-home' %}" class="nav-link" data-link>Home</a></li>
+                    <li><a href="{% url 'tech' %}" class="nav-link" data-link>Technology</a></li>
+                    <li><a href="{% url 'design' %}" class="nav-link" data-link>Design</a></li>
+                    <li><a href="{% url 'blog-about' %}" class="nav-link" data-link>About</a></li>
                 </ul>
             </nav>
 

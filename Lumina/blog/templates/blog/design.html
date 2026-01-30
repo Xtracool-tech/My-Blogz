@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        {% if post.tag == 'design' %}
+            <section class="td-layout">
+                <div class="post-card">
+                    <a href="#" class="post-image-wrapper">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image" loading="lazy">
+                    </a>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span>{{ post.author.first_name }} {{ post.author.last_name }}</span>
+                            <span>&bull;</span>
+                            <span>{{ post.date_posted }}</span>
+                        </div>
+                        <a href="{% url 'post_detail' post.pk %}">
+                            <h3 class="post-title">{{ post.title }}</h3>
+                        </a>
+                        <p class="post-excerpt">{{ post.excerpt }}</p>
+                        <div style="margin-top: auto; padding-top: 1rem;">
+                            <span class="tag">{{ post.tag }}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

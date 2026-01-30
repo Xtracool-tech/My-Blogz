@@ -1,7 +1,12 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <section class="article-view">
-        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" ">
+        <div class="post-meta" style="justify-content: center; margin: 1rem;">
+            <span>{{ post.author.first_name }} {{ post.author.last_name }}</span>
+            <span class="tag">{{ post.tag }}</span>
+            <span>{{ post.date_posted }}</span>
+        </div>
         <h1 class="article-header">{{ post.title }}</h1>
         <div class="article-body">
             {{ post.content|safe }}

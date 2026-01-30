@@ -18,11 +18,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from blog import views as blog_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path("ckeditor5/", include("django_ckeditor_5.urls")),
+    path("technology/", blog_views.technology, name='tech'),
+    path("design/", blog_views.design, name='design'),
 ]
 
 if settings.DEBUG:
