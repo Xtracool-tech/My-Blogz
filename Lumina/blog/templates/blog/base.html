@@ -15,21 +15,25 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href={% static 'blog/css/styles.css' %}>
-    <title>Lumina | Modern Blog</title>
+    {% if title %}
+        <title> Lumina | {{ title }}</title>
+    {% else %}
+        <title>Lumina | Modern Blog</title>
+    {% endif %}  
 </head>
 <body>
 
     <!-- Header -->
     <header class="site-header">
         <div class="container header-inner">
-            <a href="#home" class="logo" aria-label="Lumina Home">Lumina.</a>
+            <a href="{% url "blog-home" %}" class="logo" aria-label="Lumina Home">Lumina.</a>
             
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active" data-link>Home</a></li>
-                    <li><a href="#category/Technology" class="nav-link" data-link>Technology</a></li>
-                    <li><a href="#category/Design" class="nav-link" data-link>Design</a></li>
-                    <li><a href="#about" class="nav-link" data-link>About</a></li>
+                    <li><a href="{% url 'blog-home' %}" class="nav-link" data-link>Home</a></li>
+                    <li><a href="{% url 'tech' %}" class="nav-link" data-link>Technology</a></li>
+                    <li><a href="{% url 'design' %}" class="nav-link" data-link>Design</a></li>
+                    <li><a href="{% url 'blog-about' %}" class="nav-link" data-link>About</a></li>
                 </ul>
             </nav>
 
@@ -50,11 +54,10 @@
             </div>
         </div>
     </header>
-    <main class="container" style="min-height: 80vh; padding-top: 2rem;">
+    <main>
         {% block content %}
         {% endblock %}
     </main>
-
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">

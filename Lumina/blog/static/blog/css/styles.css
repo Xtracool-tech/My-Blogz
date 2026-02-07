@@ -57,6 +57,7 @@ body {
 a { text-decoration: none; color: inherit; transition: var(--transition); }
 ul { list-style: none; }
 img { max-width: 100%; height: auto; display: block; border-radius: var(--radius); }
+
 button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
 
 /* Typography */
@@ -171,6 +172,18 @@ gap: 2rem;
 padding-bottom: 4rem;
 }
 
+.td-layout {
+    display: contents;
+}
+
+/* Tech & Design Grid Container */
+.td-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
 /* Featured Post */
 .featured-post {
 grid-column: 1 / -1;
@@ -183,8 +196,16 @@ border-radius: var(--radius);
 overflow: hidden;
 margin-bottom: 3rem;
 border: 1px solid var(--border);
+max-height: 100%;
 }
-.featured-image { height: 100%; min-height: 350px; width: 100%; object-fit: cover; }
+
+.featured-image {
+    width: 100%;         
+    height: auto;          
+    max-height: 500px;    
+    object-fit: cover;    
+    border-radius: 8px;    
+}
 .featured-content { padding: 3rem; }
 
 /* Post Card */
@@ -207,13 +228,13 @@ height: 100%;
 .post-meta { display: flex; gap: 0.75rem; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; align-items: center; }
 .author-avatar-small { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
 .post-title { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-main); }
-/* .post-excerpt { font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1rem; } */
+.post-excerpt { font-size: 0.95rem; display: -webkit-box; --webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1rem; }
 
 /* Article Detail View */
 .article-view { max-width: 800px; margin: 0 auto; padding: 2rem 0; }
 .article-header { text-align: center; margin-bottom: 3rem; }
 .article-title { font-size: 3rem; margin-bottom: 1rem; line-height: 1.1; }
-.article-meta-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
+.article-meta-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; } 
 .article-body { font-size: 1.125rem; line-height: 1.8; color: var(--text-main); }
 .article-body h2 { margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.75rem; }
 .article-body p { margin-bottom: 1.5rem; }
